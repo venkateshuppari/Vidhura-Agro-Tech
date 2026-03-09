@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Vidhura-Agro-Tech/static/css/main.4e910548.css",
-    "main.js": "/Vidhura-Agro-Tech/static/js/main.939861b4.js",
+    "main.js": "/Vidhura-Agro-Tech/static/js/main.e98ca59e.js",
     "static/js/453.64aababc.chunk.js": "/Vidhura-Agro-Tech/static/js/453.64aababc.chunk.js",
     "index.html": "/Vidhura-Agro-Tech/index.html",
     "main.4e910548.css.map": "/Vidhura-Agro-Tech/static/css/main.4e910548.css.map",
-    "main.939861b4.js.map": "/Vidhura-Agro-Tech/static/js/main.939861b4.js.map",
+    "main.e98ca59e.js.map": "/Vidhura-Agro-Tech/static/js/main.e98ca59e.js.map",
     "453.64aababc.chunk.js.map": "/Vidhura-Agro-Tech/static/js/453.64aababc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4e910548.css",
-    "static/js/main.939861b4.js"
+    "static/js/main.e98ca59e.js"
   ]
 }
