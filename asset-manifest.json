@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Vidhura-Agro-Tech/static/css/main.620a22e9.css",
-    "main.js": "/Vidhura-Agro-Tech/static/js/main.fc252349.js",
-    "static/js/453.825386d9.chunk.js": "/Vidhura-Agro-Tech/static/js/453.825386d9.chunk.js",
+    "main.css": "/Vidhura-Agro-Tech/static/css/main.4e910548.css",
+    "main.js": "/Vidhura-Agro-Tech/static/js/main.77f65d4b.js",
+    "static/js/453.64aababc.chunk.js": "/Vidhura-Agro-Tech/static/js/453.64aababc.chunk.js",
     "index.html": "/Vidhura-Agro-Tech/index.html",
-    "main.620a22e9.css.map": "/Vidhura-Agro-Tech/static/css/main.620a22e9.css.map",
-    "main.fc252349.js.map": "/Vidhura-Agro-Tech/static/js/main.fc252349.js.map",
-    "453.825386d9.chunk.js.map": "/Vidhura-Agro-Tech/static/js/453.825386d9.chunk.js.map"
+    "main.4e910548.css.map": "/Vidhura-Agro-Tech/static/css/main.4e910548.css.map",
+    "main.77f65d4b.js.map": "/Vidhura-Agro-Tech/static/js/main.77f65d4b.js.map",
+    "453.64aababc.chunk.js.map": "/Vidhura-Agro-Tech/static/js/453.64aababc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.620a22e9.css",
-    "static/js/main.fc252349.js"
+    "static/css/main.4e910548.css",
+    "static/js/main.77f65d4b.js"
   ]
 }
