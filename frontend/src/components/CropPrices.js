@@ -1,59 +1,42 @@
 import React, { useEffect, useState } from "react";
 
-function CropPrices(){
+function CropPrices() {
+  const [prices, setPrices] = useState([]);
 
-const [crops,setCrops] = useState([]);
+  useEffect(() => {
+    fetch("https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd0000016f0f6c3c9f6c45c5b0c7c4d2f3c0d8a5&format=json")
+      .then((res) => res.json())
+      .then((data) => {
+        setPrices(data.records.slice(0,5));
+      });
+  }, []);
 
-useEffect(()=>{
+  return (
+    <div>
+      <h3>📊 Crop Market Prices</h3>
 
-fetch("https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=demo")
-.then(res=>res.json())
-.then(data=>{
+      <table border="1" cellPadding="10">
+        <thead>
+          <tr>
+            <th>Crop</th>
+            <th>Market</th>
+            <th>Price (₹)</th>
+          </tr>
+        </thead>
 
-if(data.records){
-setCrops(data.records.slice(0,5));
-}
+        <tbody>
+          {prices.map((item, index) => (
+            <tr key={index}>
+              <td>{item.commodity}</td>
+              <td>{item.market}</td>
+              <td>{item.modal_price}</td>
+            </tr>
+          ))}
+        </tbody>
 
-});
-
-},[]);
-
-return(
-
-<div style={{background:"#1e293b",padding:"20px",borderRadius:"10px",marginTop:"20px"}}>
-
-<h3>📊 Crop Market Prices</h3>
-
-<table border="1" style={{width:"100%",color:"white"}}>
-
-<thead>
-<tr>
-<th>Crop</th>
-<th>Market</th>
-<th>Price</th>
-</tr>
-</thead>
-
-<tbody>
-
-{crops.map((crop,index)=>(
-
-<tr key={index}>
-<td>{crop.commodity}</td>
-<td>{crop.market}</td>
-<td>₹{crop.modal_price}</td>
-</tr>
-
-))}
-
-</tbody>
-
-</table>
-
-</div>
-
-)
-
+      </table>
+    </div>
+  );
 }
 
 export default CropPrices;
