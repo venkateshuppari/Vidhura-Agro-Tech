@@ -1,57 +1,49 @@
 import React, { useState } from "react";
 
-function AIAssistant(){
+function AIAssistant() {
 
-const [question,setQuestion] = useState("");
-const [answer,setAnswer] = useState("");
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
 
-function askAI(){
+  const askAI = () => {
 
-let q = question.toLowerCase();
+    const responses = {
+      "rice": "Rice grows best in flooded fields with warm temperatures.",
+      "tomato": "Tomato plants need sunlight and regular watering.",
+      "fertilizer": "Use organic compost or NPK fertilizer for better yield.",
+      "pesticide": "Neem oil spray is a natural pesticide."
+    };
 
-if(q.includes("fertilizer"))
-setAnswer("Use nitrogen rich fertilizer and organic compost.");
+    let reply = "I am your farming assistant. Please ask about crops.";
 
-else if(q.includes("water"))
-setAnswer("Irrigate crops early morning to reduce evaporation.");
+    for (let key in responses) {
+      if (question.toLowerCase().includes(key)) {
+        reply = responses[key];
+      }
+    }
 
-else if(q.includes("disease"))
-setAnswer("Use neem oil spray or consult agriculture expert.");
+    setAnswer(reply);
+  };
 
-else
-setAnswer("Please consult a local agriculture officer.");
+  return (
+    <div>
+      <h3>🤖 AI Farming Assistant</h3>
 
-}
+      <input
+        type="text"
+        placeholder="Ask about crops, fertilizer, pests..."
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+      />
 
-return(
+      <button onClick={askAI}>Ask</button>
 
-<div style={{marginTop:"30px"}}>
+      {answer && (
+        <p><b>AI:</b> {answer}</p>
+      )}
 
-<h3>🤖 AI Farming Assistant</h3>
-
-<input
-type="text"
-placeholder="Ask farming question..."
-value={question}
-onChange={(e)=>setQuestion(e.target.value)}
-style={{padding:"10px",width:"60%"}}
-/>
-
-<button
-onClick={askAI}
-style={{padding:"10px",marginLeft:"10px"}}
->
-Ask
-</button>
-
-<p style={{marginTop:"15px"}}>
-{answer}
-</p>
-
-</div>
-
-)
-
+    </div>
+  );
 }
 
 export default AIAssistant;

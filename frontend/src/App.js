@@ -1,12 +1,13 @@
 import React from "react";
+import CropDisease from "./components/CropDisease";
+import AIAssistant from "./components/AIAssistant";
 import "./Dashboard.css";
 
+import FarmerProfile from "./components/FarmerProfile";
 import Weather from "./components/Weather";
 import CropPrices from "./components/CropPrices";
 import SatelliteMap from "./components/SatelliteMap";
 import AIAssistant from "./components/AIAssistant";
-import CropDisease from "./components/CropDisease";
-import FarmerProfile from "./components/FarmerProfile";
 
 function App() {
 

@@ -1,40 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+
+const data = [
+  { crop: "Rice", price: 2100 },
+  { crop: "Wheat", price: 1800 },
+  { crop: "Tomato", price: 1200 },
+  { crop: "Onion", price: 1500 },
+  { crop: "Potato", price: 900 }
+];
 
 function CropPrices() {
-  const [prices, setPrices] = useState([]);
-
-  useEffect(() => {
-    fetch("https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd0000016f0f6c3c9f6c45c5b0c7c4d2f3c0d8a5&format=json")
-      .then((res) => res.json())
-      .then((data) => {
-        setPrices(data.records.slice(0,5));
-      });
-  }, []);
-
   return (
     <div>
       <h3>📊 Crop Market Prices</h3>
 
-      <table border="1" cellPadding="10">
-        <thead>
-          <tr>
-            <th>Crop</th>
-            <th>Market</th>
-            <th>Price (₹)</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {prices.map((item, index) => (
-            <tr key={index}>
-              <td>{item.commodity}</td>
-              <td>{item.market}</td>
-              <td>{item.modal_price}</td>
-            </tr>
-          ))}
-        </tbody>
-
-      </table>
+      <BarChart width={400} height={300} data={data}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="crop" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="price" fill="#82ca9d" />
+      </BarChart>
+      
     </div>
   );
 }

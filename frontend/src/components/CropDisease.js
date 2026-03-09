@@ -1,48 +1,49 @@
 import React, { useState } from "react";
 
-function CropDisease(){
+function CropDisease() {
 
-const [result,setResult] = useState("");
+  const [image, setImage] = useState(null);
+  const [result, setResult] = useState("");
 
-function detectDisease(){
+  const handleImage = (e) => {
+    setImage(URL.createObjectURL(e.target.files[0]));
+  };
 
-const diseases = [
-"Healthy Crop",
-"Leaf Blight",
-"Powdery Mildew",
-"Rust Disease"
-];
+  const detectDisease = () => {
+    // Demo prediction
+    const diseases = [
+      "Healthy Leaf",
+      "Tomato Leaf Blight",
+      "Potato Early Blight",
+      "Leaf Spot Disease"
+    ];
 
-let prediction =
-diseases[Math.floor(Math.random()*diseases.length)];
+    const random = diseases[Math.floor(Math.random() * diseases.length)];
+    setResult(random);
+  };
 
-setResult(prediction);
+  return (
+    <div>
+      <h3>🌿 Crop Disease Detection</h3>
 
-}
+      <input type="file" onChange={handleImage} />
 
-return(
+      {image && (
+        <div>
+          <br/>
+          <img src={image} alt="plant" width="200" />
+          <br/><br/>
 
-<div style={{marginTop:"30px"}}>
+          <button onClick={detectDisease}>Detect Disease</button>
 
-<h3>🌾 Crop Disease Detection</h3>
+          {result && (
+            <p><b>Prediction:</b> {result}</p>
+          )}
+        </div>
+      )}
 
-<input type="file"/>
-
-<button
-onClick={detectDisease}
-style={{marginLeft:"10px",padding:"8px"}}
->
-Analyze Crop
-</button>
-
-<p style={{marginTop:"10px"}}>
-Prediction: {result}
-</p>
-
-</div>
-
-)
-
+    </div>
+  );
 }
 
 export default CropDisease;
